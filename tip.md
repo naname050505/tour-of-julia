@@ -31,6 +31,29 @@ a = Array{Int, 1}
 a = convert(Array{Any,1}, a)
 ```
 
+* vcatの仕様
+vcatはsrc => dstに1要素として結合する
+juliaはArrayの中にArrayを入れられるので
+```
+[Any[ 0 0 0] [1 1 1]]
+[[0 0 0] [1 1 1]]
+```
+という行列に似た表記が可能。
+別のArrayにArrayを挿入するには、
+```
+a = [Any[1 2 3]]
+b = [Any[4 5 6 7 8]]
+a = vcat(a,b)
+=========================
+2-element Array{Array{Int64,2},1}:
+[1 2 3]
+[4 5 6 7 8]
+```
+となる。もし、Any型にしたければ、
+```
+convert(Array{Any},a)
+```
+
 * 配列の範囲
 ```
 python [0:9] julia [1:10]

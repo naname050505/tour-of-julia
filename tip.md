@@ -25,6 +25,12 @@ replace(obj,"before" => "after")
 obj::afterType = parse(afterType, obj::BeforeType)
 ```
 
+* Array型のcast (Array{Int,1} => Array{Any,1})
+```
+a = Array{Int, 1}
+a = convert(Array{Any,1}, a)
+```
+
 * 配列の範囲
 ```
 python [0:9] julia [1:10]

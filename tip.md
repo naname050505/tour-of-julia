@@ -78,3 +78,57 @@ if .... end
 begin .... end
 ```
 これ以外の構文はlocalの宣言が必要になるので、注意しなきゃいけない
+
+- [ ] for文
+for loop はpythonと少し違う
+```
+for i in 0;10
+    println(i)
+end
+```
+で、0 1 2 3 ... 10
+in は柔軟で、
+```
+for i in 10
+    println(i)
+end
+```
+で、10
+
+```
+for i in 0;10;100
+    println(i)
+end
+```
+で、0 10 20...100
+
+- [ ] Dict
+```
+a = Dict([("foo",1),("hoge","a")])
+```
+もしくは、
+```
+a = Dict("A" => 1, "b" => 2)
+```
+
+- [ ] Type
+型の包含関係
+```
+function tracetype(t)
+    print(t)
+    while t != supertype(t)
+        print("<:")
+        t = supertype(t)
+        print(t)
+    end
+    println()
+end
+```
+これで入力した型のAny型までたどれる
+JuliaはAny型が一番抽象度の高い型になっている。
+また、抽象型と具体型が存在する。
+具体型はtypeof()で返ってくる型。
+抽象型は具体型のsuperset。
+
+
+
